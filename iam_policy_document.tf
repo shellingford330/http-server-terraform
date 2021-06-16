@@ -18,6 +18,13 @@ data "aws_iam_policy_document" "example_lambda" {
   statement {
     effect = "Allow"
     actions = [
+      "dynamodb:*"
+    ]
+    resources = ["*"]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
       "logs:CreateLogGroup",
       "logs:CreateLogStream",
       "logs:PutLogEvents",

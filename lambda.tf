@@ -7,6 +7,12 @@ resource "aws_lambda_function" "example_api" {
 
   memory_size = 128
   timeout     = 900
+
+  environment {
+    variables = {
+      DYNAMO_TABLE_USERS : aws_dynamodb_table.example_users.name
+    }
+  }
 }
 
 resource "aws_lambda_permission" "example_apigateway_lambda" {
